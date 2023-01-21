@@ -5,21 +5,38 @@ import {
   RouterProvider,
   Route,
   Link,
+  Outlet,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import { QueryClient, QueryClientProvider } from "react-query";
 import "./main.css";
+import PokemonList from "./routes/PokemonList";
+
+const AppLayout = () => (
+  <>
+    <Navbar />
+    <Outlet />
+  </>
+);
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Navbar />,
-  },
-  {
-    path: "about",
-    element: <div>About</div>,
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <PokemonList />,
+      },
+    ],
   },
 ]);
 
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  </>
 );

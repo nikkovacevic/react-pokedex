@@ -9,12 +9,12 @@ export default function Navbar() {
     <Box
       sx={{
         backgroundColor: "#ff5a60",
-        p: 4,
+        p: 3,
         color: "white",
       }}
     >
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Box
             sx={{
               display: "flex",
