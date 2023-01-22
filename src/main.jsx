@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./main.css";
 import PokemonList from "./routes/PokemonList";
+import PokemonDetails from "./routes/PokemonDetails";
 
 const AppLayout = () => (
   <>
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <PokemonList />,
+      },
+      {
+        path: "/pokemon/:id",
+        element: <PokemonDetails />,
       },
     ],
   },

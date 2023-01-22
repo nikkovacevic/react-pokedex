@@ -21,13 +21,12 @@ export default function PokemonList() {
   return (
     <Grid
       container
-      spacing={2}
+      spacing={4}
       sx={{
-        p: 1,
+        p: 4,
       }}
     >
       {pokemon.map((pokemon, index) => {
-        console.log(pokemon);
         return (
           <PokemonCard key={pokemon.name} pokemon={pokemon} id={index + 1} />
         );

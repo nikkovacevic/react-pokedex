@@ -11,33 +11,30 @@ export default function Navbar() {
         backgroundColor: "#ff5a60",
         p: 3,
         color: "white",
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "center",
       }}
     >
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <img src={Pokeball} style={{ height: "40px", width: "40px" }} />
-            <span
-              style={{
-                marginLeft: "8px",
-                fontSize: "24px",
-                fontWeight: "bold",
-              }}
-            >
-              POKEDEX
-            </span>
-          </Box>
-        </Grid>
-        {/* <Grid item xs={9}>
-          <Box>Nekaj druga</Box>
-        </Grid> */}
-      </Grid>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img src={Pokeball} style={{ height: "40px", width: "40px" }} />
+        <span
+          style={{
+            marginLeft: "8px",
+            fontSize: "24px",
+            fontWeight: "bold",
+          }}
+        >
+          POKEDEX
+        </span>
+      </Box>
+      {/* Github */}
     </Box>
   );
 }
