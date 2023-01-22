@@ -60,7 +60,7 @@ const Bar = ({ value }) => {
         style={{
           height: "3px",
           width: `${value}%`,
-          backgroundColor: value > 50 ? "#00B803" : "#FF7777",
+          backgroundColor: value > 50 ? "rgba(0, 184, 3, 0.5)" : "#FF7777",
           borderTopLeftRadius: "2px",
           borderBottomLeftRadius: "2px",
         }}

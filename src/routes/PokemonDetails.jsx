@@ -31,7 +31,6 @@ export default function PokemonDetails() {
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         setName(res.name);
         setImage(res.sprites.other.dream_world.front_default);
         setTypes(res.types.map((type) => type.type.name));

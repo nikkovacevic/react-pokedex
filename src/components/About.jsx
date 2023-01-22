@@ -64,6 +64,7 @@ const AbilitiesLine = ({ abilities }) => {
               fontSize: "1rem",
               fontWeight: "bold",
               marginRight: "24px",
+              lineHeight: 1.5,
             }}
           >
             {abilities.map((ability, index) => {
