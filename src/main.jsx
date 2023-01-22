@@ -10,6 +10,7 @@ import {
 import Navbar from "./components/Navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./main.css";
+import ErrorPage from "./routes/ErrorPage";
 import PokemonList from "./routes/PokemonList";
 import PokemonDetails from "./routes/PokemonDetails";
 
@@ -23,6 +24,7 @@ const AppLayout = () => (
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
 import Pokeball from "../assets/pokeball.svg";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -16,24 +17,26 @@ export default function Navbar() {
         alignItems: "center",
       }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <img src={Pokeball} style={{ height: "40px", width: "40px" }} />
-        <span
-          style={{
-            marginLeft: "8px",
-            fontSize: "24px",
-            fontWeight: "bold",
+      <Link to="/">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          POKEDEX
-        </span>
-      </Box>
+          <img src={Pokeball} style={{ height: "40px", width: "40px" }} />
+          <span
+            style={{
+              marginLeft: "8px",
+              fontSize: "24px",
+              fontWeight: "bold",
+            }}
+          >
+            POKEDEX
+          </span>
+        </Box>
+      </Link>
       {/* Github */}
     </Box>
   );

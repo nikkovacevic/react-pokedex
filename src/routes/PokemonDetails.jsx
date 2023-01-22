@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Divider, Grid } from "@mui/material";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -7,9 +7,12 @@ import capitalize from "../assets/utils";
 import { convertToId } from "../assets/utils";
 import About from "../components/About";
 import Stats from "../components/Stats";
+import ErrorPage from "./ErrorPage";
 
 export default function PokemonDetails() {
   const { id } = useParams();
+
+  const [about, setAbout] = useState(true);
 
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -59,6 +62,8 @@ export default function PokemonDetails() {
         setAbilities(res.abilities.map((ability) => ability.ability.name));
       });
   });
+
+  if (error) return <ErrorPage />;
 
   return (
     <Box
@@ -164,18 +169,69 @@ export default function PokemonDetails() {
           borderRadius: "32px",
           postition: "relative",
           marginTop: "-10vh",
-          paddingTop: "10vh",
+          pt: 8,
         }}
       >
-        <About height={height} weight={weight} abilities={abilities} />
-        {/* <Stats
-          hp={hp}
-          attack={attack}
-          defense={defense}
-          spAttack={specialAttack}
-          spDefense={specialDefense}
-          speed={speed}
-        /> */}
+        <Box
+          sx={{
+            px: 2,
+            display: "flex",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <Box
+            sx={{
+              p: 2,
+              borderBottom: about
+                ? `4px solid ${typeBackgroundColors[types[0]]}`
+                : "",
+            }}
+            onClick={() => {
+              setAbout(true);
+            }}
+          >
+            <span
+              style={{
+                fontWeight: "bold",
+                color: about ? "black" : "#a1a1a1",
+              }}
+            >
+              About
+            </span>
+          </Box>
+          <Box
+            sx={{
+              p: 2,
+              borderBottom: about
+                ? ""
+                : `4px solid ${typeBackgroundColors[types[0]]}`,
+            }}
+            onClick={() => {
+              setAbout(false);
+            }}
+          >
+            <span
+              style={{
+                fontWeight: "bold",
+                color: about ? "#a1a1a1" : "black",
+              }}
+            >
+              Base Stats
+            </span>
+          </Box>
+        </Box>
+        {about ? (
+          <About height={height} weight={weight} abilities={abilities} />
+        ) : (
+          <Stats
+            hp={hp}
+            attack={attack}
+            defense={defense}
+            spAttack={specialAttack}
+            spDefense={specialDefense}
+            speed={speed}
+          />
+        )}
       </Box>
     </Box>
   );

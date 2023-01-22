@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import PokemonCard from "../components/PokemonCard";
 
-const URL = "https://pokeapi.co/api/v2/pokemon/?limit=15";
+const URL = "https://pokeapi.co/api/v2/pokemon/?limit=151";
 
 export default function PokemonList() {
   const [pokemon, setPokemon] = useState([]);
 
-  const { isLoading, error } = useQuery("allPokemonData", () => {
+  const { isLoading, error, data } = useQuery("allPokemonData", () => {
     fetch(URL)
       .then((res) => res.json())
       .then((res) => setPokemon(res.results));
