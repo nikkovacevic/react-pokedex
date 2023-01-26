@@ -2,6 +2,10 @@
 
 This is a simple Pokedex application built using React. It displays a list of all 151 original Pokemon and allows the user to click on a Pokemon to view more information about it. The data for the Pokemon is fetched from the [PokeAPI](https://pokeapi.co/docs/v2) API.
 
+## Purpose
+
+The purpose of this project is to learn and experiment with React Query, React Router v6 and Vite.
+
 ## Screenshots
 
 <p float="middle">
