@@ -4,12 +4,11 @@ This is a simple Pokedex application built using React. It displays a list of al
 
 ## Screenshots
 
+<p float="middle">
 <img src="screenshots/mobilelistview.PNG" width='30%' alt='List of pokemon screenshot'>
-
 <img src="screenshots/mobilestats.PNG" width='30%' alt='Pokemon stats screenshot'>
-
 <img src="screenshots/mobileabout.PNG" width='30%' alt='About pokemon screenshot'>
-
+</p>
 
 ## Getting started
 
