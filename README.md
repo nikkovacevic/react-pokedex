@@ -2,6 +2,15 @@
 
 This is a simple Pokedex application built using React. It displays a list of all 151 original Pokemon and allows the user to click on a Pokemon to view more information about it. The data for the Pokemon is fetched from the [PokeAPI](https://pokeapi.co/docs/v2) API.
 
+## Screenshots
+
+<img src="screenshots/mobilelistview.PNG" width='30%' alt='List of pokemon screenshot'>
+
+<img src="screenshots/mobilestats.PNG" width='30%' alt='Pokemon stats screenshot'>
+
+<img src="screenshots/mobileabout.PNG" width='30%' alt='About pokemon screenshot'>
+
+
 ## Getting started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
