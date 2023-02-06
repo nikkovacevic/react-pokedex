@@ -51,5 +51,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## To do...
 
+- remove redundant state on details page
 - icons on details page
 - deployment
+- testing
