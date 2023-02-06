@@ -3,7 +3,7 @@ import { Grid, Paper, Box } from "@mui/material";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import typeBackgroundColors from "../assets/pokemonBackgrounds";
-import typeIcons from '../assets/pokemonIcons.js';
+import typeIcons from "../assets/pokemonIcons.js";
 import capitalize from "../assets/utils";
 import PokemonCardLoader from "./PokemonCardLoader";
 
@@ -35,6 +35,7 @@ export default function PokemonCard({ pokemon, id }) {
             backgroundColor: typeBackgroundColors[types[0]],
             p: 2,
             borderRadius: 6,
+            overflow: "hidden",
           }}
         >
           <Box
@@ -56,46 +57,42 @@ export default function PokemonCard({ pokemon, id }) {
               {capitalize(pokemon.name)}
             </span>
             {types.map((type) => (
+              <div
+                key={type}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "8px",
+                  backgroundColor: "rgba(255,255,255, 0.2)",
+                  padding: "4px 16px",
+                  maxWidth: "fit-content",
+                  borderRadius: "16px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "white",
+                    fontWeight: "bold",
+                    letterSpacing: "1px",
+                    fontSize: "14px",
+                  }}
+                >
+                  {capitalize(type)}
+                </span>
 
-                    <div
-                        key={type}
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            marginBottom: "8px",
-                            backgroundColor: "rgba(255,255,255, 0.2)",
-                            padding: "4px 16px",
-                            maxWidth: "fit-content",
-                            borderRadius: "16px",
-                        }}
-                    >
-                        <span
-                            style={{
-                                color: "white",
-                                fontWeight: "bold",
-                                letterSpacing: "1px",
-                                fontSize: "14px",
-                            }}
-                        >
-                            {capitalize(type)}
-                        </span>
-
-                        <span
-                            style={{
-                                color: 'white',
-                                marginLeft: 8,
-                                display: 'flex',
-                                alignItems: 'center',
-                                fontSize: '16px'
-                        }}>
-                            {typeIcons[type]()}
-                        </span>
-
+                <span
+                  style={{
+                    color: "white",
+                    marginLeft: 8,
+                    display: "flex",
+                    alignItems: "center",
+                    fontSize: "16px",
+                  }}
+                >
+                  {typeIcons[type]()}
+                </span>
               </div>
-
-
-
             ))}
           </Box>
           <Box
@@ -114,7 +111,6 @@ export default function PokemonCard({ pokemon, id }) {
             />
           </Box>
         </Paper>
-
       </Link>
     </Grid>
   );
