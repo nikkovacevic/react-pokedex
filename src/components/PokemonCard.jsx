@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Paper, Box } from "@mui/material";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
@@ -8,17 +8,14 @@ import capitalize from "../assets/utils";
 import PokemonCardLoader from "./PokemonCardLoader";
 
 export default function PokemonCard({ pokemon, id }) {
-  const [types, setTypes] = useState([]);
-  const [image, setImage] = useState("");
+  const { isLoading, error, data } = useQuery(["pokemonCard", id], () =>
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) => res.json())
+  );
 
-  const { isLoading, error } = useQuery(["pokemonCard", id], () => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setTypes(res.types.map((type) => type.type.name));
-        setImage(res.sprites.front_default);
-      });
-  });
+  let types = [];
+  if (data) {
+    types = data.types.map((type) => type.type.name);
+  }
 
   if (isLoading || error) return <PokemonCardLoader />;
 
@@ -102,7 +99,7 @@ export default function PokemonCard({ pokemon, id }) {
             }}
           >
             <img
-              src={image}
+              src={data?.sprites?.front_default}
               alt={pokemon.name}
               style={{
                 width: "160px",
