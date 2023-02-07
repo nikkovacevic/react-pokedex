@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import typeBackgroundColors from "../assets/pokemonBackgrounds";
 import capitalize, { convertToId } from "../assets/utils";
+import { limit } from "../assets/variables";
 import About from "../components/About";
 import Stats from "../components/Stats";
 import ErrorPage from "./ErrorPage";
@@ -26,7 +27,7 @@ export default function PokemonDetails() {
   const [weight, setWeight] = useState("");
   const [abilities, setAbilities] = useState([]);
 
-  const { isLoading, error, data } = useQuery(["PokemonDetails", id], () => {
+  const { error } = useQuery(["PokemonDetails", id], () => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then((res) => res.json())
       .then((res) => {
@@ -61,6 +62,8 @@ export default function PokemonDetails() {
       });
   });
 
+  if (id > limit) return <ErrorPage />;
+
   if (error) return <ErrorPage />;
 
   return (
@@ -73,6 +76,7 @@ export default function PokemonDetails() {
       }}
     >
       <Box
+        className="texture-card"
         sx={{
           height: "50vh",
           width: "100%",

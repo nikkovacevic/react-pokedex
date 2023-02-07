@@ -2,10 +2,11 @@ import React from "react";
 import { Grid } from "@mui/material";
 import { useQuery } from "react-query";
 import PokemonCard from "../components/PokemonCard";
+import { limit } from "../assets/variables";
 
 export default function PokemonList() {
   const { isLoading, error, data } = useQuery("allPokemonData", () =>
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=23").then((res) =>
+    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}`).then((res) =>
       res.json()
     )
   );
@@ -16,6 +17,7 @@ export default function PokemonList() {
 
   return (
     <Grid
+      className="scroll-container"
       container
       spacing={4}
       sx={{
