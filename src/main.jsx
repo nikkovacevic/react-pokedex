@@ -7,7 +7,7 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./main.css";
 import ErrorPage from "./routes/ErrorPage";
