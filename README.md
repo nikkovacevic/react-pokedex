@@ -4,7 +4,7 @@ This is a simple Pokedex application built using React. It displays a list of al
 
 ## Purpose
 
-The purpose of this project is to learn and experiment with React Query, React Router v6 and Vite.
+The purpose of this project is to learn and experiment with React Query, React Router v6, Vite and unit testing in React.
 
 ## Screenshots
 
